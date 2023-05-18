@@ -2,8 +2,8 @@ import React from 'react'
 
 function Abaut() {
   return (
-    <div>
-      Abaut
+    <div className='container border bg-red'>
+      abaut
     </div>
   )
 }
