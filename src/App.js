@@ -1,11 +1,12 @@
 
 import './App.css';
-import MyForm from './comps/myForm';
+import Scrolling from './comps/scrolling';
+
 
 function App() {
   return (
     <div className='container'>
-      <MyForm />
+<Scrolling />
     </div>
   );
 } 
