@@ -9,6 +9,7 @@ import { MapContainer, TileLayer, Marker, Popup, Tooltip } from 'react-leaflet';
     popupAnchor: [0, -40],
     tooltipAnchor: [0,-20]
   })
+  
 export default function Map1() {
     return (
         <div className="container ">
