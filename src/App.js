@@ -1,12 +1,13 @@
 
-import './App.css';
-import AppWeather from "./components/appWeather";
 import React from 'react';
+import './App.css';
+ import { BrowserRouter } from 'react-router-dom';
+import AppWeather from "./components/appWeather";
 function App() {
   return (
-    <React.Fragment>
+    <BrowserRouter>
       <AppWeather></AppWeather>
-    </React.Fragment>
+    </BrowserRouter>
   );
 }
 
