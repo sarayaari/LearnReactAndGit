@@ -2,8 +2,9 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { addTrip } from '../featurs/TripsSlice';
 
-export default function AddTrip() {
 
+export default function AddTrip() {
+ 
     const dispatch = useDispatch();
     let trip = { name: "newTrip" }
 

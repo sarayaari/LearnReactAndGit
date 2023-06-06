@@ -6,6 +6,7 @@ import TripsList from './tripsList'
 import Trip from './trip';
 import AddTrip from './addTrip';
 import TripInfo from './tripInfo';
+import TripSelectionGraph from './tripSelectionGraph';
 
 
 export default function AppTrips() {
@@ -17,6 +18,7 @@ export default function AppTrips() {
         <Route path="/trip" element={<Trip/>}/>
         <Route path="/addTrip" element={<AddTrip/>}/>
         <Route path="/tripInfo/:id" element={<TripInfo/>}/>
+        <Route path="/choicesTrip" element={<TripSelectionGraph/>}/>
         <Route path="/*" element={<h1>file not foun :(</h1>}/>
       </Routes>
       <Footer></Footer>
