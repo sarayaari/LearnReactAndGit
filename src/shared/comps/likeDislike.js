@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faThumbsUp, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
+
 
 
 const LikeDislike = () => {
@@ -23,39 +22,24 @@ const LikeDislike = () => {
     }
   };
 
-  const handleDislike = () => {
-    if (!disliked) {
-      setDislikes(dislikes + 1);
-      setDisliked(true);
-      if (liked) {
-        setLikes(likes - 1);
-        setLiked(false);
-      }
-    } else {
-      setDislikes(dislikes - 1);
-      setDisliked(false);
-    }
-  };
+
 
   return (
-    <div className="like-dislike">
-      <div className="btn-group">
-      
-        <button
-          type="button"
-          className={`btn btn-outline-primary ${disliked ? "active" : ""}`}
-          onClick={handleDislike}
-        >
-          <FontAwesomeIcon icon={faThumbsDown} />          
+    <div className="like-dislike d-inline  align-content-stretch  ">
+      <div style={{ height: "3em" }} className="row justify-content-end" >
+        <button type="button" className="btn btn-outline-primary" onClick={handleLike} >         
+          {likes > 0 ?
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class=" mx-3d-inline   bi bi-heart-fill" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+            </svg> : <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+              <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+            </svg>
+          }
+          <span className="px-1 d-inline mx-0.1">{likes}</span>
+          {/* <p style={{ fontSize: "0.8em" }} >{5}</p> */}
         </button>
-        <button
-          type="button"
-          className={`btn btn-outline-primary ${liked ? "active" : ""}`}
-          onClick={handleLike}
-        >
-          <FontAwesomeIcon icon={faThumbsUp} />
-          <span className="ml-1">{likes}</span>
-        </button>
+        <span>
+        </span>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
- import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
- import { getChoicesTrip } from '../featurs/TripsSlice';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getChoicesTrip } from '../featurs/TripsSlice';
 
 import CanvasJSReact from '@canvasjs/react-charts';
 
@@ -9,19 +9,24 @@ const CanvasJS = CanvasJSReact.CanvasJS;
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 export default function TripSelectionGraph() {
-     const dispath=useDispatch()
+    const tripsList = useSelector((mystore) => mystore.tripsSlice.trips_arr)
+    let likeAr = tripsList.map((item) => {
+        return { id: item.id, name: item.name, munLike: item.like }
+    })
+    console.log(likeAr)
+    const dispath = useDispatch()
 
- const nav = useNavigate()
-    let [suffixes , setSuffixes]=useState();
-    let [order, setOrder]= useState ();
-    const  onClickBack =()=>{
+    const nav = useNavigate()
+    let [suffixes, setSuffixes] = useState();
+    let [order, setOrder] = useState();
+    const onClickBack = () => {
         nav("/")
     }
- 
-useEffect(()=>{
-     debugger
-  let st_ar=dispath(getChoicesTrip)
-},[])
+
+    useEffect(() => {
+        debugger
+        let st_ar = dispath(getChoicesTrip)
+    }, [])
 
     //   const options = {
     //     title: {
@@ -38,15 +43,15 @@ useEffect(()=>{
     //       ]
     //     }]
     // }
-    
-   const  addSymbols=(e) =>{
-	 setSuffixes (["", "K", "M", "B"]) ;
-     setOrder(Math.max(Math.floor(Math.log(Math.abs(e.value)) / Math.log(1)), 0)) ;
-     if(order > suffixes.length - 1)
-			order = suffixes.length - 1;
- 
-		let suffix = suffixes[order];
-		return (e.value / Math.pow(1, order)) + suffix;	
+
+    const addSymbols = (e) => {
+        setSuffixes(["", "K", "M", "B"]);
+        setOrder(Math.max(Math.floor(Math.log(Math.abs(e.value)) / Math.log(1)), 0));
+        if (order > suffixes.length - 1)
+            order = suffixes.length - 1;
+
+        let suffix = suffixes[order];
+        return (e.value / Math.pow(1, order)) + suffix;
     }
 
 
@@ -58,10 +63,10 @@ useEffect(()=>{
         },
         axisY: {
             title: "מספר הבוחרים ",
-          //  labelFormatter: addSymbols,
+            //  labelFormatter: addSymbols,
             scaleBreaks: {
-            autoCalculate: true
-        }
+                autoCalculate: true
+            }
         },
         axisX: {
             title: " סוגי הטיולים",
@@ -70,9 +75,9 @@ useEffect(()=>{
         data: [{
             type: "column",
             dataPoints: [
-                { label: "טיול 1", y: 1},
-                { label: "טיול 2", y: 3},
-                { label: "טיול 3", y: 40},
+                { label: "טיול 1", y: 1 },
+                { label: "טיול 2", y: 3 },
+                { label: "טיול 3", y: 40 },
                 // { label: "UC Browser", y: 17453224},
                 // { label: "MX Player", y: 6389443},
                 // { label: "Hotstar", y: 4815084},
@@ -80,13 +85,13 @@ useEffect(()=>{
             ]
         }]
     }
-   
+
 
     return (
 
         <div className=' container col-8 mt-5'>
-              <CanvasJSChart options = {options2}/>
-              <button onClick={onClickBack}>חזרה לדף הבית </button>
+            <CanvasJSChart options={options2} />
+            <button onClick={onClickBack}>חזרה לדף הבית </button>
         </div>
 
     )

@@ -27,25 +27,31 @@ export default function Trip(props) {
   }
 
   return (
-    <div className='card   direction-rtl text-right  '>
-      <div className="">
-        <h5 className='card-header'>{propItem.name}</h5>
-        <div className='card-body'>
-        <div onClick={onClickLike} className='float-start' >
-            <LikeDislike></LikeDislike>
-            <p>{propItem.like}</p>
-          </div>
-          <br/>
-          <br/>
-          <br/>
-          <h5 class="card-title"> {TRACK_TYPE}:{propItem.kind}</h5>
-          <p class="card-text">{DIFFICULTY}:{propItem.Difficulty}</p>
-          <button onClick={onClickMore} class="btn btn-primary">עוד</button>
-        </div>
+    <div style={{ textAlign: "right" }} className='card col-3  my-3 mx-2  '>
+      <div className="float-right card-header  ">
+        <p style={{ fontSize: "0.8em" }} className='d-block'>{propItem.name}</p>
       </div>
+      <div className='float-right card-body'>
 
+        <div className="row justify-content-between align-items-center " >
+          <div onClick={onClickLike} className='col-4   textAlign-center m-2' >
+            <div className="col-2 justify-content-center"><LikeDislike  ></LikeDislike></div>
+          </div>
 
+          <p class="textAlign:rigth col-7 card-title" style={{ fontSize: "0.8em" }}>{TRACK_TYPE}:{propItem.kind}</p>
+        </div>
+       
+        <p class="card-text">{DIFFICULTY}:{propItem.Difficulty}</p>
+        <button style={{ fontSize: "0.8em" }} onClick={onClickMore} class="btn btn-primary  text-end ">עוד</button>
+      </div>
     </div>
   )
 }
 
+
+
+
+
+     {/* <div className="card-img-top">
+     <img  src="../../public/logo192.png" className="card-img-top" alt="vfvfv" />  
+     </div> */}

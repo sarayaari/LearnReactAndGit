@@ -5,13 +5,17 @@ import { Provider } from 'react-redux'
 import AppTrips from './comps/appTrips';
 import tripsSlice from "./featurs/TripsSlice"
 
+
 const mystore = configureStore({
   reducer: {
     tripsSlice
   }
 })
 
+
 function App() {
+
+  
 
   return (
     <Provider store={mystore} >

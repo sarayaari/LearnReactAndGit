@@ -61,7 +61,7 @@ export default function TripInfo() {
             }
         </MapContainer>
         <div >
-            <div class="card-body">
+            <div class="card-body  float-left">
                 <div className='col-12 col-md-6 order-md-1'>
                     {iconWeather ? <img className='img-fluid ml-auto ' src={urlIcon}
                         alt='iconWeather' style={{ width: "3em" }} />
