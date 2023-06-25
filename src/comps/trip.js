@@ -35,7 +35,7 @@ export default function Trip(props) {
 
         <div className="row justify-content-between align-items-center " >
           <div onClick={onClickLike} className='col-4   textAlign-center m-2' >
-            <div className="col-2 justify-content-center"><LikeDislike  ></LikeDislike></div>
+            <div className="col-2 justify-content-center"><LikeDislike id={propItem.id}  ></LikeDislike></div>
           </div>
 
           <p class="textAlign:rigth col-7 card-title" style={{ fontSize: "0.8em" }}>{TRACK_TYPE}:{propItem.kind}</p>

@@ -1,12 +1,15 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 
 
 
-const LikeDislike = () => {
-  const [likes, setLikes] = useState(0);
+const LikeDislike = (props) => {
+  const [likes, setLikes] = useState(props.id?props.id:0);
   const [dislikes, setDislikes] = useState(0);
   const [liked, setLiked] = useState(false);
   const [disliked, setDisliked] = useState(false);
+  const dispath = useDispatch()
+
 
   const handleLike = () => {
     if (!liked) {

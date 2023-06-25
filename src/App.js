@@ -14,9 +14,6 @@ const mystore = configureStore({
 
 
 function App() {
-
-  
-
   return (
     <Provider store={mystore} >
       <AppTrips></AppTrips>
